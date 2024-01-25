@@ -1,0 +1,21 @@
+body {
+  background-color: #000;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+* {
+  font: inherit;
+}
+
+h1 {
+  color: #fff;
+  font-size: 4rem;
+  text-align: center;
+}
+
+canvas {
+  margin: 0 auto;
+  display: block;
+  background-color: #2a5;
+}
