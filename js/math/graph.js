@@ -59,6 +59,25 @@ class Graph {
   }
 
   removePoint(point) {
+    let segs = this.getSegmentsWithPoint(point);
+    for (const seg of segs) {
+      this.removeSegment(seg);
+    }
     this.points.splice(this.points.indexOf(point), 1);
+  }
+
+  getSegmentsWithPoint(point) {
+    const segs = [];
+    for (const segment of this.segments) {
+      if (segment.hasPoint(point)) {
+        segs.push(segment)
+      }
+    }
+    return segs;
+  }
+
+  clear() {
+    this.points.length = 0;
+    this.segments.length = 0;
   }
 }

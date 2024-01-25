@@ -13,6 +13,7 @@
             <button onclick="addSegment()">Add Segment</button>
             <button onclick="removeSegment()">Remove Segment</button>
             <button onclick="removePoint()">Remove Point</button>
+            <button onclick="_clear()">Clear</button>
         </div>
 
         <canvas id="myCanvas"></canvas>
@@ -22,14 +23,21 @@
         <script src="js/math/graph.js"></script>
 
         <script>
+            function _clear() {
+                graph.clear();
+								rerender();
+            }
+
             function removePoint() {
                 if (!graph.hasPoints()) {
                     console.log("There are no points available to remove");
                     return;
                 }
-                const randomIndex = Math.random() * graph.points.length;
+                const randomIndex = Math.floor(
+                    Math.random() * graph.points.length
+                );
                 graph.removePoint(graph.points[randomIndex]);
-								rerender();
+                rerender();
             }
 
             function removeSegment() {
@@ -55,7 +63,6 @@
                 );
 
                 const check = graph.tryAddSegment(segment);
-                console.log(check);
                 rerender();
             }
 
